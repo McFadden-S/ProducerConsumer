@@ -1,4 +1,4 @@
-/* **********************************************************
+/** **********************************************************
  * Programmer:      Shae McFadden
  * Class:           CS40S
  * 
@@ -21,15 +21,21 @@
  	// ********** instance variable **********
  	
             Semaphore sem;
-     
+            String tN;
+            
  	// ********** constructors ***********
  	
-            public myThread(Semaphore s){
-                sem = s;
+            /**
+             * Constructor for myThread object inherits Thread
+             * Required:
+             * @param semaphore
+             * @param threadName 
+             */
+            public myThread(Semaphore semaphore, String threadName){
+                super(threadName);
+                
+                sem = semaphore;
+                tN = threadName;
             }//end of constructor
-     
- 	// ********** accessors **********
- 	
- 	// ********** mutators **********
- 
+            
  }  // end class
