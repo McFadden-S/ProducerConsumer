@@ -15,8 +15,9 @@
  {  // begin class
  	
  	// *********** class constants **********
- 	
-            final static Queue PRODUCT = new Queue();
+            final static int[] temp = {1, 2, 3, 4, 5};
+            final static Queue PRODUCT = new Queue(temp);
+            final static int REPEAT = 100;
      
  	// ********** instance variable **********
  	

@@ -9,12 +9,13 @@
 //
 // Input:           None
 //
-//  Output:         Output to the console window with updates on the
+// Output:          Output to the console window with updates on the
 //                  the program and shared resouce 
 // ***********************************************************************
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.util.concurrent.Semaphore;
 
 public class Main
 {  // begin class
@@ -24,9 +25,11 @@ public class Main
 	
 	// ***** declaration of variables *****
 	
+            Semaphore semaphore = new Semaphore(1);
+            
 	// ***** create objects *****
 		
-		
+            Consumer1 con1 = new Consumer1(semaphore, "Consumer One");
 	
 	// ***** Print Banner *****
 	
@@ -38,7 +41,8 @@ public class Main
 	
 	// ***** main *****
 	
-		
+            con1.start();
+            
 
 	// ***** closing message *****
 	
