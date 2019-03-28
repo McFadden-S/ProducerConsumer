@@ -15,7 +15,7 @@ import java.util.concurrent.Semaphore;
  public class Producer extends myThread{// begin class
     // ********** Instance variable ***********
 
-        Random rand = new Random();
+        private Random rand = new Random();
 
     // ********** constructors ***********
 
@@ -33,11 +33,11 @@ import java.util.concurrent.Semaphore;
 
         /**
          * Overwrites thread run method
-         * acquires lock to shared resource then take one number out and 
-         * sets it to the power of two the releases the lock.
+         * acquires lock to shared resource then filles the shared resource
+         * back up to five items.
          */
         public void run(){
-            for(int i = 0; i < REPEAT; i++){
+            while(REPEAT){
                 try {
                     if(sem.availablePermits()==0){
                         System.out.println(tN + ": Blocked");
@@ -47,9 +47,12 @@ import java.util.concurrent.Semaphore;
 
                     if(PRODUCT.sizeQ<5){
                         while(PRODUCT.sizeQ<5){
-                            n = rand.nextInt(50)+1;
+                            n = rand.nextInt(RANGE)+1;
                             PRODUCT.Enque(n);
                         }//end of while
+                        
+                        sleep(100);
+                        
                         System.out.println(tN + ": Filled back to five items");
                     }//end of if less then five products
                     else{
@@ -57,7 +60,7 @@ import java.util.concurrent.Semaphore;
                     }//end of else full product
 
                     sem.release();
-                    sleep(200);
+                    sleep(250);
                 } //end of try
                 catch (InterruptedException ex) {
                     System.out.println(tN + ": Interrupted");

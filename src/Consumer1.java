@@ -37,10 +37,10 @@ import java.util.logging.Logger;
             /**
              * Overwrites thread run method
              * acquires lock to shared resource then take one number out and 
-             * sets it to the power of two the releases the lock.
+             * sets it to the power of two then releases the lock.
              */
             public void run(){
-                for(int i = 0; i < REPEAT; i++){
+                while(REPEAT){
                     try {
                         if(sem.availablePermits()==0){
                             System.out.println(tN + ": Blocked");
@@ -52,7 +52,7 @@ import java.util.logging.Logger;
                             n = PRODUCT.Deque();
                             ans = recur2Pow(n);
                             
-                            sleep(500);
+                            sleep(100);
                             
                             System.out.println(tN + ": Items Left " + PRODUCT.sizeQ 
                                     + ", Calculated 2^" + n + " is: " + ans);
@@ -62,7 +62,7 @@ import java.util.logging.Logger;
                         }//end of else no product
                         
                         sem.release();
-                        sleep(20);
+                        sleep(500);
                         
                     } //end of try
                     catch (InterruptedException ex) {

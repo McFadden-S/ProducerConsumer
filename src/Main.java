@@ -29,7 +29,10 @@ public class Main
             
 	// ***** create objects *****
 		
+            myThread timer = new myThread(semaphore, "Timer");
             Consumer1 con1 = new Consumer1(semaphore, "Consumer One");
+            Consumer2 con2  = new Consumer2(semaphore, "Consumer Two");
+            Consumer3 con3 = new Consumer3(semaphore, "Consumer Three");
             Producer pro = new Producer(semaphore, "Producer");
             
 	// ***** Print Banner *****
@@ -42,12 +45,11 @@ public class Main
 	
 	// ***** main *****
 	
+            timer.start();
             con1.start();
+            con2.start();
+            con3.start();
             pro.start();
-
-	// ***** closing message *****
-	
-		System.out.println("end of processing");
 	
 	}  // end main	
 }  // end class
