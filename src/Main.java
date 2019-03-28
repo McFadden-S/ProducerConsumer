@@ -30,7 +30,8 @@ public class Main
 	// ***** create objects *****
 		
             Consumer1 con1 = new Consumer1(semaphore, "Consumer One");
-	
+            Producer pro = new Producer(semaphore, "Producer");
+            
 	// ***** Print Banner *****
 	
             System.out.println("**********************************");
@@ -42,7 +43,7 @@ public class Main
 	// ***** main *****
 	
             con1.start();
-            
+            pro.start();
 
 	// ***** closing message *****
 	

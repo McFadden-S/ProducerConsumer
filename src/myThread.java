@@ -15,14 +15,15 @@
  {  // begin class
  	
  	// *********** class constants **********
-            final static int[] temp = {1, 2, 3, 4, 5};
-            final static Queue PRODUCT = new Queue(temp);
+            
+            final static Queue PRODUCT = new Queue();
             final static int REPEAT = 100;
      
  	// ********** instance variable **********
  	
             Semaphore sem;
             String tN;
+            int n;
             
  	// ********** constructors ***********
  	

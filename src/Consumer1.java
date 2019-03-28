@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  {  // begin class
         // ********** variables ***********
      
-            private int n, ans;
+            private long ans;
             
  	// ********** constructors ***********
             
@@ -51,8 +51,9 @@ import java.util.logging.Logger;
                         if(PRODUCT.sizeQ>0){
                             n = PRODUCT.Deque();
                             ans = recur2Pow(n);
-
-                            sleep(500); 
+                            
+                            sleep(500);
+                            
                             System.out.println(tN + ": Items Left " + PRODUCT.sizeQ 
                                     + ", Calculated 2^" + n + " is: " + ans);
                         }//end of if product 
@@ -61,6 +62,7 @@ import java.util.logging.Logger;
                         }//end of else no product
                         
                         sem.release();
+                        sleep(20);
                         
                     } //end of try
                     catch (InterruptedException ex) {
@@ -74,7 +76,7 @@ import java.util.logging.Logger;
              * @param num
              * @return 2 to the power of input
              */
-            private int recur2Pow(int num){
+            private long recur2Pow(int num){
                 if(num == 1){
                     return 2;
                 }//termination condition
