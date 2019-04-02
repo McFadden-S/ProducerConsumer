@@ -80,6 +80,12 @@ import java.util.Random;
                 }//end of for repeat loop
             }//end of overwrite run
             
+            /**
+             * Purpose: Finds the greatest common factor of two inputs
+             * @param num1
+             * @param num2
+             * @return greatest common factor
+             */
             private long gcf(long num1, long num2){
                 long temp1, temp2;
                 
