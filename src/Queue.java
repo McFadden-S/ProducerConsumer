@@ -88,8 +88,8 @@
         
         /*
         Purpose: removes value of the queue
-        interface none
-        returns value removed
+        interface: none
+        returns: value removed
         */
         public int Deque(){
             int n = 0;
